@@ -1,0 +1,103 @@
+aid: check-point
+name: Check Point Software
+description: >-
+  Check Point Software Technologies is a cybersecurity vendor providing
+  integrated network, cloud, workspace, and AI security products including
+  next-generation firewalls, SD-WAN, threat intelligence, endpoint, email,
+  and mobile protection. Check Point exposes REST-based Management, GAIA,
+  and Spark Management APIs for automating policy, object, gateway, and
+  appliance administration across Quantum Security Management and SMB
+  deployments.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Security
+  - Cybersecurity
+  - Firewall
+  - Network Security
+  - Cloud Security
+  - Endpoint Security
+  - Threat Intelligence
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/check-point/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: check-point:management-api
+    name: Check Point Management API
+    description: >-
+      REST API for Check Point Security Management Server that automates
+      configuration of security policies, rulebases, network and service
+      objects, gateways, VPN communities, and access roles. Authentication
+      uses administrator credentials or an API key to obtain a session ID
+      (sid) returned by /web_api/login.
+    humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+    baseURL: https://{management_server}/web_api
+    tags:
+      - Security Management
+      - Policies
+      - Rulebases
+      - Network Objects
+      - Gateways
+      - VPN
+      - Session Auth
+    properties:
+      - type: Documentation
+        url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+      - type: API Reference
+        url: https://sc1.checkpoint.com/documents/latest/api_reference/index.html
+      - type: Python SDK
+        url: https://github.com/CheckPointSW/cp_mgmt_api_python_sdk
+  - aid: check-point:gaia-api
+    name: Check Point GAIA API
+    description: >-
+      REST API for managing Check Point GAIA operating system on security
+      gateways and management servers, covering system configuration,
+      interfaces, routing, users, software updates, and Clish-equivalent
+      operations.
+    humanURL: https://sc1.checkpoint.com/documents/latest/GaiaAPIs/
+    baseURL: https://{gaia_host}/gaia_api
+    tags:
+      - GAIA
+      - Operating System
+      - System Configuration
+      - Networking
+    properties:
+      - type: Documentation
+        url: https://sc1.checkpoint.com/documents/latest/GaiaAPIs/
+  - aid: check-point:spark-management-api
+    name: Check Point Spark Management API
+    description: >-
+      REST API for Check Point Spark Management used to administer SMB
+      appliances and gateways at scale, covering devices, policies, objects,
+      and reporting for small and medium business deployments.
+    humanURL: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
+    baseURL: https://{spark_management}/web_api
+    tags:
+      - Spark Management
+      - SMB
+      - Appliances
+      - Policies
+    properties:
+      - type: Documentation
+        url: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
+
+common:
+  - type: Website
+    url: https://www.checkpoint.com
+  - type: Documentation
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  - type: Support Center
+    url: https://supportcenter.checkpoint.com/
+  - type: User Center
+    url: https://usercenter.checkpoint.com/
+  - type: Research
+    url: https://research.checkpoint.com/
+  - type: GitHub Organization
+    url: https://github.com/CheckPointSW
+  - type: Contact
+    url: https://www.checkpoint.com/about-us/contact-us/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
