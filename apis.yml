@@ -45,7 +45,7 @@ apis:
     properties:
       - type: Documentation
         url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
-      - type: API Reference
+      - type: APIReference
         url: https://sc1.checkpoint.com/documents/latest/api_reference/index.html
       - type: Python SDK
         url: https://github.com/CheckPointSW/cp_mgmt_api_python_sdk
@@ -94,7 +94,7 @@ common:
     url: https://usercenter.checkpoint.com/
   - type: Research
     url: https://research.checkpoint.com/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/CheckPointSW
   - type: Contact
     url: https://www.checkpoint.com/about-us/contact-us/
