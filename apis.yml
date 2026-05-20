@@ -84,6 +84,8 @@ apis:
         url: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/check-point-software-technologies
   - type: Website
     url: https://www.checkpoint.com
   - type: Documentation
