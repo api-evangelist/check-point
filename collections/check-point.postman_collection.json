@@ -1,0 +1,1532 @@
+{
+  "item": [
+    {
+      "id": "6329f1bc-9435-44da-a50a-72194d28a767",
+      "name": "Session",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "977745ff-db67-4ffa-a3ac-0fe134466692",
+          "name": "Login and obtain a session ID (sid)",
+          "request": {
+            "name": "Login and obtain a session ID (sid)",
+            "description": {},
+            "url": {
+              "path": [
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"password\": \"<password>\",\n  \"api-key\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"read-only\": \"<boolean>\",\n  \"continue-last-session\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb14a4f6-6b57-470f-8889-65d0df18d998",
+              "name": "Session established",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"password\": \"<password>\",\n  \"api-key\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"read-only\": \"<boolean>\",\n  \"continue-last-session\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sid\": \"string\",\n  \"url\": \"http://ObOlyvyEBfvjOpJCbkQjfYXTALjl.vwjhE.d6bWgSFL.dYNjFzrwyoeVcUubX.qziItOtt9EPaLxSd8yFQM4Xww5G1DOPSIXT,uC1P0X4bXLMguE3\",\n  \"session-timeout\": 3156,\n  \"last-login-was-at\": {\n    \"posix\": 5607,\n    \"iso-8601\": \"string\"\n  },\n  \"uid\": \"string\",\n  \"api-server-version\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a92b4561-daba-47e7-8f76-89d3071104a7",
+          "name": "Logout and invalidate the session ID",
+          "request": {
+            "name": "Logout and invalidate the session ID",
+            "description": {},
+            "url": {
+              "path": [
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd7f831c-19c5-41e4-83f8-34a0787ba8fd",
+              "name": "Logged out",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5faa0ad-aca0-41f2-854c-60b5fa2369b6",
+          "name": "Publish staged changes",
+          "request": {
+            "name": "Publish staged changes",
+            "description": {},
+            "url": {
+              "path": [
+                "publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cac336fd-d09f-473c-afdc-84aad42b8561",
+              "name": "Publish task accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"task-id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "86c9ea3a-5dbf-43d9-8905-12e8b9dcc494",
+      "name": "Hosts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93c2856b-f353-455c-9d2d-f1b68737860c",
+          "name": "List host objects",
+          "request": {
+            "name": "List host objects",
+            "description": {},
+            "url": {
+              "path": [
+                "show-hosts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": 0,\n  \"limit\": 50,\n  \"filter\": \"<string>\",\n  \"order\": [\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    },\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    }\n  ],\n  \"details-level\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77885ad7-fbd5-45b1-bda5-5f75858acc84",
+              "name": "Host collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "show-hosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": 0,\n  \"limit\": 50,\n  \"filter\": \"<string>\",\n  \"order\": [\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    },\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    }\n  ],\n  \"details-level\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"uid\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"host\",\n      \"ipv4-address\": \"string\",\n      \"ipv6-address\": \"string\",\n      \"comments\": \"string\",\n      \"color\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"uid\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"host\",\n      \"ipv4-address\": \"string\",\n      \"ipv6-address\": \"string\",\n      \"comments\": \"string\",\n      \"color\": \"string\",\n      \"groups\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"from\": 3947,\n  \"to\": 6012,\n  \"total\": 9441\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b3aa19e-bddf-40ca-a6cc-8ea30cc35b0f",
+          "name": "Retrieve a single host object",
+          "request": {
+            "name": "Retrieve a single host object",
+            "description": {},
+            "url": {
+              "path": [
+                "show-host"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04589910-a410-43bd-9b2a-a3850822dfe7",
+              "name": "Host",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "show-host"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uid\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"host\",\n  \"ipv4-address\": \"string\",\n  \"ipv6-address\": \"string\",\n  \"comments\": \"string\",\n  \"color\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa7bc81e-d45f-4f94-b654-0282567ba39f",
+          "name": "Create a host object",
+          "request": {
+            "name": "Create a host object",
+            "description": {},
+            "url": {
+              "path": [
+                "add-host"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ip-address\": \"<string>\",\n  \"ipv4-address\": \"<string>\",\n  \"ipv6-address\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"color\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"set-if-exists\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b07316fc-2a90-418e-a432-bde4597735b2",
+              "name": "Host created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "add-host"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ip-address\": \"<string>\",\n  \"ipv4-address\": \"<string>\",\n  \"ipv6-address\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"color\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"set-if-exists\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uid\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"host\",\n  \"ipv4-address\": \"string\",\n  \"ipv6-address\": \"string\",\n  \"comments\": \"string\",\n  \"color\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3864f372-e3e6-46b4-b978-65c34e1c77e1",
+          "name": "Update a host object",
+          "request": {
+            "name": "Update a host object",
+            "description": {},
+            "url": {
+              "path": [
+                "set-host"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ip-address\": \"<string>\",\n  \"ipv4-address\": \"<string>\",\n  \"ipv6-address\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"color\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"set-if-exists\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba81a9d6-090a-462e-a71c-87b5a8070492",
+              "name": "Host updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "set-host"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ip-address\": \"<string>\",\n  \"ipv4-address\": \"<string>\",\n  \"ipv6-address\": \"<string>\",\n  \"comments\": \"<string>\",\n  \"color\": \"<string>\",\n  \"groups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"set-if-exists\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uid\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"host\",\n  \"ipv4-address\": \"string\",\n  \"ipv6-address\": \"string\",\n  \"comments\": \"string\",\n  \"color\": \"string\",\n  \"groups\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8b22861-aa3a-455d-a4ea-611c536b7bd6",
+          "name": "Delete a host object",
+          "request": {
+            "name": "Delete a host object",
+            "description": {},
+            "url": {
+              "path": [
+                "delete-host"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2497c30f-4c9a-46de-97df-1b07fd2e0cb4",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "delete-host"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d1653024-7432-4724-9121-8450ac504ad2",
+      "name": "Networks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b298a1b6-6dd3-477a-bcdd-d9182ed6940a",
+          "name": "List network objects",
+          "request": {
+            "name": "List network objects",
+            "description": {},
+            "url": {
+              "path": [
+                "show-networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": 0,\n  \"limit\": 50,\n  \"filter\": \"<string>\",\n  \"order\": [\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    },\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    }\n  ],\n  \"details-level\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9775b03a-6fd0-44ee-97ca-5523e607c2e1",
+              "name": "Network collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "show-networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": 0,\n  \"limit\": 50,\n  \"filter\": \"<string>\",\n  \"order\": [\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    },\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    }\n  ],\n  \"details-level\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objects\": [\n    {\n      \"uid\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"network\",\n      \"subnet4\": \"string\",\n      \"mask-length4\": 4978,\n      \"subnet6\": \"string\",\n      \"mask-length6\": 9703,\n      \"nat-settings\": {},\n      \"comments\": \"string\"\n    },\n    {\n      \"uid\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"network\",\n      \"subnet4\": \"string\",\n      \"mask-length4\": 6970,\n      \"subnet6\": \"string\",\n      \"mask-length6\": 5643,\n      \"nat-settings\": {},\n      \"comments\": \"string\"\n    }\n  ],\n  \"total\": 6539\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a07718bd-077a-404b-b950-b233792803ba",
+          "name": "Create a network object",
+          "request": {
+            "name": "Create a network object",
+            "description": {},
+            "url": {
+              "path": [
+                "add-network"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"subnet\": \"<string>\",\n  \"subnet4\": \"<string>\",\n  \"subnet6\": \"<string>\",\n  \"mask-length\": \"<integer>\",\n  \"mask-length4\": \"<integer>\",\n  \"mask-length6\": \"<integer>\",\n  \"subnet-mask\": \"<string>\",\n  \"nat-settings\": \"<object>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14a3c906-8e57-49d5-ba99-7b8406e2cc07",
+              "name": "Network created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "add-network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"subnet\": \"<string>\",\n  \"subnet4\": \"<string>\",\n  \"subnet6\": \"<string>\",\n  \"mask-length\": \"<integer>\",\n  \"mask-length4\": \"<integer>\",\n  \"mask-length6\": \"<integer>\",\n  \"subnet-mask\": \"<string>\",\n  \"nat-settings\": \"<object>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uid\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"network\",\n  \"subnet4\": \"string\",\n  \"mask-length4\": 4270,\n  \"subnet6\": \"string\",\n  \"mask-length6\": 5046,\n  \"nat-settings\": {},\n  \"comments\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0cae7477-d703-4d95-9f52-e59b810da8be",
+      "name": "Access Rules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9a65d19-4eea-4930-9c6b-4e130290ae5f",
+          "name": "Show an access control rulebase",
+          "request": {
+            "name": "Show an access control rulebase",
+            "description": {},
+            "url": {
+              "path": [
+                "show-access-rulebase"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"package\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": 50,\n  \"details-level\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c34dbab3-e07b-43a1-b8ca-8a23a6e373da",
+              "name": "Rulebase contents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "show-access-rulebase"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"package\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": 50,\n  \"details-level\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 298\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed5e2582-adc1-4856-91e2-d7948a1feeac",
+          "name": "Add an access rule to a layer",
+          "request": {
+            "name": "Add an access rule to a layer",
+            "description": {},
+            "url": {
+              "path": [
+                "add-access-rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"layer\": \"<string>\",\n  \"position\": \"<string>\",\n  \"name\": \"<string>\",\n  \"source\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"destination\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"action\": \"<string>\",\n  \"track\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d89c89d-c6c1-4f68-98d6-ce4d17e815af",
+              "name": "Rule created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "add-access-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"layer\": \"<string>\",\n  \"position\": \"<string>\",\n  \"name\": \"<string>\",\n  \"source\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"destination\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"service\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"action\": \"<string>\",\n  \"track\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "270adfbd-3582-403b-aa62-a8f386bc5ac0",
+      "name": "Gateways",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bcde6619-dad9-43b3-bcbb-bef47bf9d11e",
+          "name": "List simple gateways",
+          "request": {
+            "name": "List simple gateways",
+            "description": {},
+            "url": {
+              "path": [
+                "show-simple-gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the Check Point Management Server",
+                  "type": "any",
+                  "value": "{{management_server}}",
+                  "key": "management_server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offset\": 0,\n  \"limit\": 50,\n  \"filter\": \"<string>\",\n  \"order\": [\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    },\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    }\n  ],\n  \"details-level\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c2c734b-eea5-452a-8723-458fba07f67e",
+              "name": "Gateway collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "show-simple-gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the Check Point Management Server",
+                      "type": "any",
+                      "value": "{{management_server}}",
+                      "key": "management_server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-chkp-sid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offset\": 0,\n  \"limit\": 50,\n  \"filter\": \"<string>\",\n  \"order\": [\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    },\n    {\n      \"ASC\": \"<string>\",\n      \"DESC\": \"<string>\"\n    }\n  ],\n  \"details-level\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 4133\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname or IP of the Check Point Management Server",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "management.example.com",
+      "key": "management_server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{management_server}}/web_api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-chkp-sid"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "69bff48d-01ec-420f-97d8-c8b9c15c77d1",
+    "name": "Check Point Management Web API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST-based Web Services API for the Check Point Quantum Security\nManagement Server. All commands are invoked as HTTP POST to\n/web_api/{command} with a JSON body. After calling /web_api/login with\nadministrator credentials, subsequent requests authenticate with the\nreturned session ID supplied in the X-chkp-sid header. Configuration\nchanges are staged until you call /web_api/publish. Only the most\ncommonly used commands are surfaced here; the full inventory is at\nhttps://sc1.checkpoint.com/documents/latest/APIs/index.html.\n\n\nContact Support:\n Name: Check Point Management API Reference",
+      "type": "text/plain"
+    }
+  }
+}

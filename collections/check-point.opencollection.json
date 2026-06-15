@@ -1,0 +1,253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Check Point Management Web API",
+    "version": "latest"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-chkp-sid",
+      "value": "{{X-chkp-sid}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Session",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Login and obtain a session ID (sid)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Login and obtain a session ID (sid)"
+        },
+        {
+          "info": {
+            "name": "Logout and invalidate the session ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/logout",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Logout and invalidate the session ID"
+        },
+        {
+          "info": {
+            "name": "Publish staged changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/publish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Publish staged changes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hosts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List host objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/show-hosts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List host objects"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single host object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/show-host",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a single host object"
+        },
+        {
+          "info": {
+            "name": "Create a host object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/add-host",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a host object"
+        },
+        {
+          "info": {
+            "name": "Update a host object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/set-host",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a host object"
+        },
+        {
+          "info": {
+            "name": "Delete a host object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/delete-host",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete a host object"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List network objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/show-networks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List network objects"
+        },
+        {
+          "info": {
+            "name": "Create a network object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/add-network",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a network object"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Access Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show an access control rulebase",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/show-access-rulebase",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Show an access control rulebase"
+        },
+        {
+          "info": {
+            "name": "Add an access rule to a layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/add-access-rule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an access rule to a layer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List simple gateways",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{management_server}/web_api/show-simple-gateways",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List simple gateways"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
