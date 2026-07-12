@@ -84,6 +84,10 @@ apis:
         url: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
 
 common:
+  - type: DomainSecurity
+    url: security/check-point-domain-security.yml
+  - type: Authentication
+    url: authentication/check-point-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/check-point-software-technologies
   - type: Website
@@ -100,6 +104,8 @@ common:
     url: https://github.com/CheckPointSW
   - type: Contact
     url: https://www.checkpoint.com/about-us/contact-us/
+  - type: Blog
+    url: https://blog.checkpoint.com/feed/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

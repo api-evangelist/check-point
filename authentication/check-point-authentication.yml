@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/check-point-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: sessionId
+  type: apiKey
+  in: header
+  parameter: X-chkp-sid
+  description: Session ID returned by /login, supplied on every subsequent call.
+  sources:
+  - openapi/check-point-openapi.yml
