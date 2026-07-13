@@ -1,0 +1,21 @@
+{
+  "repo": "check-point",
+  "feeds": [
+    {
+      "source": "https://blog.checkpoint.com/feed/",
+      "feed_url": "https://blog.checkpoint.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.checkpoint.com/about-us/contact-us/",
+      "feed_url": "https://www.checkpoint.com/about-us/contact-us/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 13
+}
