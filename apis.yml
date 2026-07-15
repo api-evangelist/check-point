@@ -84,6 +84,8 @@ apis:
         url: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/check-point-agentic-access.yml
   - type: DomainSecurity
     url: security/check-point-domain-security.yml
   - type: Authentication
