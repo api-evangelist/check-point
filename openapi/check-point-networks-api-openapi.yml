@@ -1,0 +1,168 @@
+openapi: 3.1.0
+info:
+  title: Check Point Management Web Access Rules Networks API
+  version: latest
+  description: 'REST-based Web Services API for the Check Point Quantum Security
+
+    Management Server. All commands are invoked as HTTP POST to
+
+    /web_api/{command} with a JSON body. After calling /web_api/login with
+
+    administrator credentials, subsequent requests authenticate with the
+
+    returned session ID supplied in the X-chkp-sid header. Configuration
+
+    changes are staged until you call /web_api/publish. Only the most
+
+    commonly used commands are surfaced here; the full inventory is at
+
+    https://sc1.checkpoint.com/documents/latest/APIs/index.html.
+
+    '
+  contact:
+    name: Check Point Management API Reference
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+servers:
+- url: https://{management_server}/web_api
+  description: Security Management Server base URL
+  variables:
+    management_server:
+      default: management.example.com
+      description: Hostname or IP of the Check Point Management Server
+security:
+- sessionId: []
+tags:
+- name: Networks
+paths:
+  /show-networks:
+    post:
+      tags:
+      - Networks
+      summary: List network objects
+      operationId: showNetworks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListQuery'
+      responses:
+        '200':
+          description: Network collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  objects:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Network'
+                  total:
+                    type: integer
+  /add-network:
+    post:
+      tags:
+      - Networks
+      summary: Create a network object
+      operationId: addNetwork
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NetworkCreate'
+      responses:
+        '200':
+          description: Network created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Network'
+components:
+  schemas:
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: integer
+          default: 0
+        limit:
+          type: integer
+          default: 50
+          maximum: 500
+        filter:
+          type: string
+        order:
+          type: array
+          items:
+            type: object
+            properties:
+              ASC:
+                type: string
+              DESC:
+                type: string
+        details-level:
+          type: string
+          enum:
+          - uid
+          - standard
+          - full
+    Network:
+      type: object
+      properties:
+        uid:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - network
+        subnet4:
+          type: string
+        mask-length4:
+          type: integer
+        subnet6:
+          type: string
+        mask-length6:
+          type: integer
+        nat-settings:
+          type: object
+        comments:
+          type: string
+    NetworkCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        subnet:
+          type: string
+        subnet4:
+          type: string
+        subnet6:
+          type: string
+        mask-length:
+          type: integer
+        mask-length4:
+          type: integer
+        mask-length6:
+          type: integer
+        subnet-mask:
+          type: string
+        nat-settings:
+          type: object
+        tags:
+          type: array
+          items:
+            type: string
+        comments:
+          type: string
+  securitySchemes:
+    sessionId:
+      type: apiKey
+      in: header
+      name: X-chkp-sid
+      description: Session ID returned by /login, supplied on every subsequent call.

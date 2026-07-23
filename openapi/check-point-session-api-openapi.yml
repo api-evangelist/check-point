@@ -1,0 +1,151 @@
+openapi: 3.1.0
+info:
+  title: Check Point Management Web Access Rules Session API
+  version: latest
+  description: 'REST-based Web Services API for the Check Point Quantum Security
+
+    Management Server. All commands are invoked as HTTP POST to
+
+    /web_api/{command} with a JSON body. After calling /web_api/login with
+
+    administrator credentials, subsequent requests authenticate with the
+
+    returned session ID supplied in the X-chkp-sid header. Configuration
+
+    changes are staged until you call /web_api/publish. Only the most
+
+    commonly used commands are surfaced here; the full inventory is at
+
+    https://sc1.checkpoint.com/documents/latest/APIs/index.html.
+
+    '
+  contact:
+    name: Check Point Management API Reference
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+servers:
+- url: https://{management_server}/web_api
+  description: Security Management Server base URL
+  variables:
+    management_server:
+      default: management.example.com
+      description: Hostname or IP of the Check Point Management Server
+security:
+- sessionId: []
+tags:
+- name: Session
+paths:
+  /login:
+    post:
+      tags:
+      - Session
+      summary: Login and obtain a session ID (sid)
+      operationId: login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                password:
+                  type: string
+                  format: password
+                api-key:
+                  type: string
+                  description: Use api-key instead of user/password when authenticating with an API key
+                domain:
+                  type: string
+                read-only:
+                  type: boolean
+                continue-last-session:
+                  type: boolean
+              required: []
+      responses:
+        '200':
+          description: Session established
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+  /logout:
+    post:
+      tags:
+      - Session
+      summary: Logout and invalidate the session ID
+      operationId: logout
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Logged out
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessage'
+  /publish:
+    post:
+      tags:
+      - Session
+      summary: Publish staged changes
+      operationId: publish
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Publish task accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+components:
+  schemas:
+    LoginResponse:
+      type: object
+      properties:
+        sid:
+          type: string
+          description: Session ID for subsequent requests
+        url:
+          type: string
+          format: uri
+        session-timeout:
+          type: integer
+        last-login-was-at:
+          type: object
+          properties:
+            posix:
+              type: integer
+              format: int64
+            iso-8601:
+              type: string
+        uid:
+          type: string
+        api-server-version:
+          type: string
+    TaskResponse:
+      type: object
+      properties:
+        task-id:
+          type: string
+    GenericMessage:
+      type: object
+      properties:
+        message:
+          type: string
+  securitySchemes:
+    sessionId:
+      type: apiKey
+      in: header
+      name: X-chkp-sid
+      description: Session ID returned by /login, supplied on every subsequent call.

@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Check Point Management Web Access Rules API
+  version: latest
+  description: 'REST-based Web Services API for the Check Point Quantum Security
+
+    Management Server. All commands are invoked as HTTP POST to
+
+    /web_api/{command} with a JSON body. After calling /web_api/login with
+
+    administrator credentials, subsequent requests authenticate with the
+
+    returned session ID supplied in the X-chkp-sid header. Configuration
+
+    changes are staged until you call /web_api/publish. Only the most
+
+    commonly used commands are surfaced here; the full inventory is at
+
+    https://sc1.checkpoint.com/documents/latest/APIs/index.html.
+
+    '
+  contact:
+    name: Check Point Management API Reference
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+servers:
+- url: https://{management_server}/web_api
+  description: Security Management Server base URL
+  variables:
+    management_server:
+      default: management.example.com
+      description: Hostname or IP of the Check Point Management Server
+security:
+- sessionId: []
+tags:
+- name: Access Rules
+paths:
+  /show-access-rulebase:
+    post:
+      tags:
+      - Access Rules
+      summary: Show an access control rulebase
+      operationId: showAccessRulebase
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: Layer name, e.g. 'Network'
+                package:
+                  type: string
+                offset:
+                  type: integer
+                limit:
+                  type: integer
+                  default: 50
+                details-level:
+                  type: string
+                  enum:
+                  - uid
+                  - standard
+                  - full
+      responses:
+        '200':
+          description: Rulebase contents
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rulebase:
+                    type: array
+                    items:
+                      type: object
+                  total:
+                    type: integer
+  /add-access-rule:
+    post:
+      tags:
+      - Access Rules
+      summary: Add an access rule to a layer
+      operationId: addAccessRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - layer
+              - position
+              properties:
+                layer:
+                  type: string
+                position:
+                  oneOf:
+                  - type: string
+                    enum:
+                    - top
+                    - bottom
+                  - type: integer
+                name:
+                  type: string
+                source:
+                  type: array
+                  items:
+                    type: string
+                destination:
+                  type: array
+                  items:
+                    type: string
+                service:
+                  type: array
+                  items:
+                    type: string
+                action:
+                  type: string
+                  enum:
+                  - Accept
+                  - Drop
+                  - Reject
+                  - Inform
+                  - Ask
+                  - User Auth
+                  - Client Auth
+                track:
+                  type: string
+                enabled:
+                  type: boolean
+      responses:
+        '200':
+          description: Rule created
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    sessionId:
+      type: apiKey
+      in: header
+      name: X-chkp-sid
+      description: Session ID returned by /login, supplied on every subsequent call.

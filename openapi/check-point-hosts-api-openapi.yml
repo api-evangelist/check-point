@@ -1,0 +1,254 @@
+openapi: 3.1.0
+info:
+  title: Check Point Management Web Access Rules Hosts API
+  version: latest
+  description: 'REST-based Web Services API for the Check Point Quantum Security
+
+    Management Server. All commands are invoked as HTTP POST to
+
+    /web_api/{command} with a JSON body. After calling /web_api/login with
+
+    administrator credentials, subsequent requests authenticate with the
+
+    returned session ID supplied in the X-chkp-sid header. Configuration
+
+    changes are staged until you call /web_api/publish. Only the most
+
+    commonly used commands are surfaced here; the full inventory is at
+
+    https://sc1.checkpoint.com/documents/latest/APIs/index.html.
+
+    '
+  contact:
+    name: Check Point Management API Reference
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+servers:
+- url: https://{management_server}/web_api
+  description: Security Management Server base URL
+  variables:
+    management_server:
+      default: management.example.com
+      description: Hostname or IP of the Check Point Management Server
+security:
+- sessionId: []
+tags:
+- name: Hosts
+paths:
+  /show-hosts:
+    post:
+      tags:
+      - Hosts
+      summary: List host objects
+      operationId: showHosts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListQuery'
+      responses:
+        '200':
+          description: Host collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  objects:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Host'
+                  from:
+                    type: integer
+                  to:
+                    type: integer
+                  total:
+                    type: integer
+  /show-host:
+    post:
+      tags:
+      - Hosts
+      summary: Retrieve a single host object
+      operationId: showHost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectLookup'
+      responses:
+        '200':
+          description: Host
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Host'
+  /add-host:
+    post:
+      tags:
+      - Hosts
+      summary: Create a host object
+      operationId: addHost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HostCreate'
+      responses:
+        '200':
+          description: Host created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Host'
+  /set-host:
+    post:
+      tags:
+      - Hosts
+      summary: Update a host object
+      operationId: setHost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HostCreate'
+      responses:
+        '200':
+          description: Host updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Host'
+  /delete-host:
+    post:
+      tags:
+      - Hosts
+      summary: Delete a host object
+      operationId: deleteHost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectLookup'
+      responses:
+        '200':
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessage'
+components:
+  schemas:
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: integer
+          default: 0
+        limit:
+          type: integer
+          default: 50
+          maximum: 500
+        filter:
+          type: string
+        order:
+          type: array
+          items:
+            type: object
+            properties:
+              ASC:
+                type: string
+              DESC:
+                type: string
+        details-level:
+          type: string
+          enum:
+          - uid
+          - standard
+          - full
+    HostCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        ip-address:
+          type: string
+        ipv4-address:
+          type: string
+        ipv6-address:
+          type: string
+        comments:
+          type: string
+        color:
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        set-if-exists:
+          type: boolean
+    GenericMessage:
+      type: object
+      properties:
+        message:
+          type: string
+    Host:
+      type: object
+      properties:
+        uid:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - host
+        ipv4-address:
+          type: string
+        ipv6-address:
+          type: string
+        comments:
+          type: string
+        color:
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+    ObjectLookup:
+      type: object
+      properties:
+        name:
+          type: string
+        uid:
+          type: string
+        details-level:
+          type: string
+          enum:
+          - uid
+          - standard
+          - full
+      anyOf:
+      - required:
+        - name
+      - required:
+        - uid
+  securitySchemes:
+    sessionId:
+      type: apiKey
+      in: header
+      name: X-chkp-sid
+      description: Session ID returned by /login, supplied on every subsequent call.

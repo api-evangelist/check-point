@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: Check Point Management Web Access Rules Gateways API
+  version: latest
+  description: 'REST-based Web Services API for the Check Point Quantum Security
+
+    Management Server. All commands are invoked as HTTP POST to
+
+    /web_api/{command} with a JSON body. After calling /web_api/login with
+
+    administrator credentials, subsequent requests authenticate with the
+
+    returned session ID supplied in the X-chkp-sid header. Configuration
+
+    changes are staged until you call /web_api/publish. Only the most
+
+    commonly used commands are surfaced here; the full inventory is at
+
+    https://sc1.checkpoint.com/documents/latest/APIs/index.html.
+
+    '
+  contact:
+    name: Check Point Management API Reference
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+servers:
+- url: https://{management_server}/web_api
+  description: Security Management Server base URL
+  variables:
+    management_server:
+      default: management.example.com
+      description: Hostname or IP of the Check Point Management Server
+security:
+- sessionId: []
+tags:
+- name: Gateways
+paths:
+  /show-simple-gateways:
+    post:
+      tags:
+      - Gateways
+      summary: List simple gateways
+      operationId: showSimpleGateways
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListQuery'
+      responses:
+        '200':
+          description: Gateway collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  objects:
+                    type: array
+                    items:
+                      type: object
+                  total:
+                    type: integer
+components:
+  schemas:
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: integer
+          default: 0
+        limit:
+          type: integer
+          default: 50
+          maximum: 500
+        filter:
+          type: string
+        order:
+          type: array
+          items:
+            type: object
+            properties:
+              ASC:
+                type: string
+              DESC:
+                type: string
+        details-level:
+          type: string
+          enum:
+          - uid
+          - standard
+          - full
+  securitySchemes:
+    sessionId:
+      type: apiKey
+      in: header
+      name: X-chkp-sid
+      description: Session ID returned by /login, supplied on every subsequent call.
