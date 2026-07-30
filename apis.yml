@@ -9,7 +9,19 @@ description: >-
   appliance administration across Quantum Security Management and SMB
   deployments.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/check-point.png
 tags:
   - Security
   - Cybersecurity
@@ -24,65 +36,110 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: check-point:management-api
-    name: Check Point Management API
-    description: >-
-      REST API for Check Point Security Management Server that automates
-      configuration of security policies, rulebases, network and service
-      objects, gateways, VPN communities, and access roles. Authentication
-      uses administrator credentials or an API key to obtain a session ID
-      (sid) returned by /web_api/login.
-    humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
-    baseURL: https://{management_server}/web_api
-    tags:
-      - Security Management
-      - Policies
-      - Rulebases
-      - Network Objects
-      - Gateways
-      - VPN
-      - Session Auth
-    properties:
-      - type: Documentation
-        url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
-      - type: APIReference
-        url: https://sc1.checkpoint.com/documents/latest/api_reference/index.html
-      - type: Python SDK
-        url: https://github.com/CheckPointSW/cp_mgmt_api_python_sdk
-  - aid: check-point:gaia-api
-    name: Check Point GAIA API
-    description: >-
-      REST API for managing Check Point GAIA operating system on security
-      gateways and management servers, covering system configuration,
-      interfaces, routing, users, software updates, and Clish-equivalent
-      operations.
-    humanURL: https://sc1.checkpoint.com/documents/latest/GaiaAPIs/
-    baseURL: https://{gaia_host}/gaia_api
-    tags:
-      - GAIA
-      - Operating System
-      - System Configuration
-      - Networking
-    properties:
-      - type: Documentation
-        url: https://sc1.checkpoint.com/documents/latest/GaiaAPIs/
-  - aid: check-point:spark-management-api
-    name: Check Point Spark Management API
-    description: >-
-      REST API for Check Point Spark Management used to administer SMB
-      appliances and gateways at scale, covering devices, policies, objects,
-      and reporting for small and medium business deployments.
-    humanURL: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
-    baseURL: https://{spark_management}/web_api
-    tags:
-      - Spark Management
-      - SMB
-      - Appliances
-      - Policies
-    properties:
-      - type: Documentation
-        url: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
-
+- aid: check-point:management-api
+  name: Check Point Management API
+  description: >-
+    REST API for Check Point Security Management Server that automates configuration of security policies,
+    rulebases, network and service objects, gateways, VPN communities, and access roles. Authentication
+    uses administrator credentials or an API key to obtain a session ID (sid) returned by /web_api/login.
+  humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  baseURL: https://{management_server}/web_api
+  tags:
+  - Security Management
+  - Policies
+  - Rulebases
+  - Network Objects
+  - Gateways
+  - VPN
+  - Session Auth
+  properties:
+  - type: Documentation
+    url: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  - type: APIReference
+    url: https://sc1.checkpoint.com/documents/latest/api_reference/index.html
+  - type: Python SDK
+    url: https://github.com/CheckPointSW/cp_mgmt_api_python_sdk
+- aid: check-point:gaia-api
+  name: Check Point GAIA API
+  description: >-
+    REST API for managing Check Point GAIA operating system on security gateways and management servers,
+    covering system configuration, interfaces, routing, users, software updates, and Clish-equivalent
+    operations.
+  humanURL: https://sc1.checkpoint.com/documents/latest/GaiaAPIs/
+  baseURL: https://{gaia_host}/gaia_api
+  tags:
+  - GAIA
+  - Operating System
+  - System Configuration
+  - Networking
+  properties:
+  - type: Documentation
+    url: https://sc1.checkpoint.com/documents/latest/GaiaAPIs/
+- aid: check-point:spark-management-api
+  name: Check Point Spark Management API
+  description: >-
+    REST API for Check Point Spark Management used to administer SMB appliances and gateways at scale,
+    covering devices, policies, objects, and reporting for small and medium business deployments.
+  humanURL: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
+  baseURL: https://{spark_management}/web_api
+  tags:
+  - Spark Management
+  - SMB
+  - Appliances
+  - Policies
+  properties:
+  - type: Documentation
+    url: https://sc1.checkpoint.com/documents/latest/SmpAPIs/
+- aid: check-point:check-point-access-rules-api
+  name: Check Point Software Access Rules API
+  description: The Access Rules API from Check Point Software — 2 operation(s) for access rules.
+  humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  baseURL: https://{management_server}/web_api
+  tags:
+  - Access Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/check-point-access-rules-api-openapi.yml
+- aid: check-point:check-point-gateways-api
+  name: Check Point Software Gateways API
+  description: The Gateways API from Check Point Software — 1 operation(s) for gateways.
+  humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  baseURL: https://{management_server}/web_api
+  tags:
+  - Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/check-point-gateways-api-openapi.yml
+- aid: check-point:check-point-hosts-api
+  name: Check Point Software Hosts API
+  description: The Hosts API from Check Point Software — 5 operation(s) for hosts.
+  humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  baseURL: https://{management_server}/web_api
+  tags:
+  - Hosts
+  properties:
+  - type: OpenAPI
+    url: openapi/check-point-hosts-api-openapi.yml
+- aid: check-point:check-point-networks-api
+  name: Check Point Software Networks API
+  description: The Networks API from Check Point Software — 2 operation(s) for networks.
+  humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  baseURL: https://{management_server}/web_api
+  tags:
+  - Networks
+  properties:
+  - type: OpenAPI
+    url: openapi/check-point-networks-api-openapi.yml
+- aid: check-point:check-point-session-api
+  name: Check Point Software Session API
+  description: The Session API from Check Point Software — 3 operation(s) for session.
+  humanURL: https://sc1.checkpoint.com/documents/latest/APIs/index.html
+  baseURL: https://{management_server}/web_api
+  tags:
+  - Session
+  properties:
+  - type: OpenAPI
+    url: openapi/check-point-session-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/check-point-agentic-access.yml
