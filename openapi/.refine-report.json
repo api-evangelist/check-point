@@ -1,0 +1,22 @@
+{
+  "provider": "check-point",
+  "sources": [
+    "check-point-access-rules-api-openapi.yml",
+    "check-point-gateways-api-openapi.yml",
+    "check-point-hosts-api-openapi.yml",
+    "check-point-networks-api-openapi.yml",
+    "check-point-session-api-openapi.yml"
+  ],
+  "outputs": [
+    "check-point-access-rules-api-openapi.yml",
+    "check-point-gateways-api-openapi.yml",
+    "check-point-hosts-api-openapi.yml",
+    "check-point-networks-api-openapi.yml",
+    "check-point-session-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
